@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: webserver
+  name: webserver-service
+  namespace: default
+  resourceVersion: "570171"
+  uid: 033a9b35-6276-4c56-9c47-62dfbe1515b4
+spec:
+  clusterIP: 10.109.126.13
+  clusterIPs:
+  - 10.109.126.13
+  externalTrafficPolicy: Cluster
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - name: port-1
+    nodePort: 31111
+    port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: webserver
+  sessionAffinity: None
+  type: NodePort
+status:
+  loadBalancer: {}
